@@ -19,9 +19,9 @@ const entrepreneurs = [
     { first: 'Peter', last: 'Thiel', year: 1967 }
   ];
 
-const between = entrepreneurs.filter(element => {
-return element.year > 1970 && element.year < 1980;
-})
+// const between = entrepreneurs.filter(element => {
+// return element.year > 1970 && element.year < 1980;
+// })
 
 // console.log(between)
 
@@ -29,3 +29,11 @@ return element.year > 1970 && element.year < 1980;
 
 // console.log(entrepreneursWithoutYear)
 
+const currentYear = new Date().getFullYear(); // get the current year
+
+const entrepreneursWithAge = entrepreneurs.map(obj => {
+    const age = currentYear - obj.year;
+    return { first: obj.first, last: obj.last, year: obj.year, age }; // équivaut à { ...obj, age} 
+});
+
+console.log(entrepreneursWithAge)
