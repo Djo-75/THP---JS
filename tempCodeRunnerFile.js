@@ -1,3 +1,1 @@
-
-// console.log(statement3);
-// console.log(entrepreneursWithAge)
+new_array

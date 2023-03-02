@@ -13,37 +13,51 @@ const books = [
     { title: 'Guerre et Paix', id: 748147, rented: 19 }
   ];
 
+  //Vérifie si location or not;
+  
   let array = Object.values(books)
+
+  if (array.find(item => item.rented === 0))
+  {
+  console.log(`Y a au moins un livre n'ayant pas été loué`)
+  }
+  else 
+  {
+    console.log(`Tous les livres ont été loués au moins une fois`)
+  }
  
   //Trouve le livre avec l'ID: 873495 ;
 
     check_book = array.find(item => item.id === 873495);
     console.log(`Le livre avec l'ID 873495 est ${check_book.title}`)
 
-  //Supprime le livre avec l'ID: 133712 
-
-//   remove_book = array.find(item => item.id === 133712);
-//   new_array = books.splice(remove_book,1)
-
-//   console.log(new_array)
+  //Trouve le livre avec le max de locs;
 
   let max = Math.max(...array.map(book => book.rented))
   var result_max = books.find(item => item.rented === max)
   
   console.log(`Le bouquin le plus loué est ${result_max.title}`)
 
+    //Trouve le livre avec le min de locs;
+
   let min = Math.min(...array.map(book => book.rented))
   var result_min = books.find(item => item.rented === min)
 
   console.log(`Le bouquin le moins loué est ${result_min.title}`)
 
+// autre technique pour supprimer
+  // const idToDelete = 133712;
+  // const newBooks = books.filter(book => book.id !== idToDelete);
+  // console.log(newBooks);
 
-  const idToDelete = 133712;
-  const newBooks = books.filter(book => book.id !== idToDelete);
-  console.log(newBooks);
+//Supprime le livre avec l'ID: 133712 
 
+  remove_book = array.find(item => item.id === 133712);
+  new_array = books.splice(remove_book,1)
+
+  console.log(books)
   
-  const sort = newBooks.sort(function(a,b) {
+  const sort = books.sort(function(a,b) {
     let fa = a.title.toLowerCase(),
     fb = b.title.toLowerCase();
   
