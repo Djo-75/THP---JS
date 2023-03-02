@@ -1,5 +1,3 @@
-
-
 var fact=1,nombre,i;
 
 nombre=parseInt(prompt("Donnez un nombre entier :"));
